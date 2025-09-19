@@ -1,43 +1,46 @@
 -- Tabela de Clientes
-CREATE TABLE IF NOT EXISTS clientes (
+CREATE TABLE IF NOT EXISTS customers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     email VARCHAR(255),
-    documento VARCHAR(50),
+    document VARCHAR(50),
+    phone VARCHAR(50),
+    country VARCHAR(50),
+    loyalty_tier INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Tabela de Quartos Reservados
-CREATE TABLE IF NOT EXISTS quartos_reservados (
+CREATE TABLE IF NOT EXISTS reserved_rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    numero_quarto VARCHAR(50) NOT NULL,
+    room_number VARCHAR(50) NOT NULL,
     hotel_id INT,
-    hotel_nome VARCHAR(255),
-    categoria VARCHAR(100),
-    subcategoria VARCHAR(100),
-    valor_diaria DECIMAL(10, 2),
-    moeda VARCHAR(10),
-    data_checkin DATE,
-    data_checkout DATE,
+    hotel_name VARCHAR(255),
+    category VARCHAR(100),
+    subcategory VARCHAR(100),
+    daily_rate DECIMAL(10, 2),
+    currency VARCHAR(10),
+    checkin_date DATE,
+    checkout_date DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Tabela de Reservas
-CREATE TABLE IF NOT EXISTS reservas (
+CREATE TABLE IF NOT EXISTS reservations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     uuid VARCHAR(100) UNIQUE NOT NULL,
-    cliente_id INT,
-    quarto_reservado_id INT,
+    customer_id INT,
+    reserved_room_id INT,
     status VARCHAR(50),
-    numero_hospedes INT,
-    cafe_incluso BOOLEAN DEFAULT FALSE,
-    metodo_pagamento VARCHAR(50),
-    status_pagamento VARCHAR(50),
+    number_of_guests INT,
+    breakfast_included BOOLEAN DEFAULT FALSE,
+    payment_method VARCHAR(50),
+    payment_status VARCHAR(50),
     transaction_id VARCHAR(100),
-    fonte VARCHAR(50),
+    source VARCHAR(50),
     ip_address VARCHAR(45),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     indexed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE SET NULL,
-    FOREIGN KEY (quarto_reservado_id) REFERENCES quartos_reservados(id) ON DELETE SET NULL
+    FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE SET NULL,
+    FOREIGN KEY (reserved_room_id) REFERENCES reserved_rooms(id) ON DELETE SET NULL
 );
