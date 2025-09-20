@@ -3,6 +3,11 @@
 Este projeto implementa um consumidor de mensagens de reserva e uma API para consulta de reservas, conforme os requisitos da atividade da faculdade.
 
 ## Tecnologias Utilizadas
+*   Gabriel Abraovick Bortoliero de Souza
+*   Fabio Antimo Modesto Salvatore
+
+
+## Tecnologias Utilizadas
 
 *   Node.js
 *   Express.js (para a API)
