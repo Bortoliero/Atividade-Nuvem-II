@@ -3,7 +3,7 @@
 Este projeto implementa um consumidor de mensagens de reserva e uma API para consulta de reservas, conforme os requisitos da atividade da faculdade.
 
 ## Integrantes
-*   Gabriel Abraovick Bortoliero de Souza
+*   Gabriel Abramovick Bortoliero de Souza
 *   Fabio Antimo Modesto Salvatore
 
 
